@@ -1,0 +1,50 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+
+# Node/API
+dist/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Hardhat / Smart Contracts
+cache/
+artifacts/
+typechain/
+typechain-types/
+coverage.json
+ignition/deployments/
+
+# Env files (JANGAN PERNAH PUSH .env KE GITHUB)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Misc
+.DS_Store
+*.pem
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
