@@ -1,64 +1,80 @@
 # 🚀 Nvoin SmartDEX
 
-> Build. Backtest. Deploy.
+🌐 [English](./README.md) | **[Bahasa Indonesia](./README.id.md)**
+
+> Bangun. Backtest. Deploy.
 >
-> A next-generation no-code trading platform built on Monad.
+> Platform trading no-code generasi baru yang dibangun di atas Monad.
 
 ---
 
-## 📖 What is Nvoin SmartDEX?
+## 📖 Apa itu Nvoin SmartDEX?
 
-Nvoin SmartDEX is more than just a decentralized exchange.
+Nvoin SmartDEX bukan sekadar decentralized exchange biasa.
 
-It allows anyone to build, test, and deploy automated trading strategies **without writing code**.
+Platform ini memungkinkan siapa pun untuk membangun, menguji, dan menjalankan strategi trading otomatis **tanpa perlu menulis kode**.
 
-Instead of manually watching charts every day, users can create their own trading logic using a visual interface and let the bot execute trades automatically on Monad.
+Daripada memantau chart secara manual setiap hari, user bisa membuat logika trading mereka sendiri lewat antarmuka visual, lalu membiarkan bot mengeksekusi trading secara otomatis di Monad.
 
-Whether you're a beginner or an experienced trader, Nvoin SmartDEX makes algorithmic trading accessible.
-
----
-
-## ❓ Why We Built This
-
-Most DEXs only allow users to swap tokens. If users want automated trading, they usually have to:
-
-- Learn programming
-- Write smart contracts
-- Use complicated scripting languages
-- Trust third-party bots
-
-This creates a huge barrier for most traders. We believe trading automation should be simple. That's why we built Nvoin SmartDEX.
+Baik lu pemula maupun trader berpengalaman, Nvoin SmartDEX membuat algorithmic trading jadi mudah diakses.
 
 ---
 
-## ✨ Core Features
+## ❓ Kenapa Kami Membangun Ini
 
-### 🔄 Smart DEX
+Kebanyakan DEX hanya memungkinkan user untuk swap token. Kalau user ingin trading otomatis, biasanya mereka harus:
 
-Fast token swaps powered by Monad smart contracts.
+- Belajar programming
+- Menulis smart contract
+- Menggunakan bahasa scripting yang rumit
+- Percaya pada bot pihak ketiga
 
-- Low latency
-- Low transaction costs
-- Wallet connection
-- Secure on-chain execution
+Ini menciptakan hambatan besar bagi kebanyakan trader. Kami percaya otomasi trading seharusnya sederhana. Itulah kenapa kami membangun Nvoin SmartDEX.
+
+---
+
+## ✨ Fitur Utama
+
+### 🎛️ Mode Trading
+
+User bisa memilih cara mereka ingin trading:
+
+|                | **Manual** | **Dikelola Bot** |
+|----------------|------------|------------------|
+| **Spot**       | Swap manual langsung lewat Smart DEX | Eksekusi otomatis berdasarkan strategi yang sudah disetup |
+
+> 📌 Futures trading direncanakan untuk fase berikutnya — lihat [Roadmap Masa Depan](#-roadmap-masa-depan). Versi saat ini fokus penuh ke spot trading (manual & bot) agar bisa dikirim dengan aman dan solid dalam timeline hackathon.
+
+Manual trading tidak butuh setup apa pun — langsung eksekusi seperti exchange biasa. Trading yang dikelola bot mengharuskan user melakukan setup strategi terlebih dahulu lewat Strategy Builder sebelum bot bisa berjalan.
+
+### 🔄 Smart DEX (Spot)
+
+Swap token cepat yang didukung smart contract Monad.
+
+- Latensi rendah
+- Biaya transaksi rendah
+- Koneksi wallet
+- Eksekusi on-chain yang aman
 
 ### 🤖 Trading Bot
 
-Automate trades using custom strategies. Users can:
+Otomatisasi trading spot menggunakan strategi custom. User bisa:
 
-- Run bots 24/7
-- Execute Buy/Sell automatically
-- Configure Stop Loss
-- Configure Take Profit
-- Configure Trailing Stop
+- Menjalankan bot 24/7
+- Eksekusi Buy/Sell secara otomatis
+- Mengatur Stop Loss
+- Mengatur Take Profit
+- Mengatur Trailing Stop
+- **Menyimpan konfigurasi bot ke database** — bisa dipakai ulang atau diedit kapan saja tanpa perlu setup dari 0
+- Start / Pause / Stop bot kapan saja
 
-No coding required.
+Tanpa perlu coding.
 
 ### 🧩 Strategy Builder
 
-Instead of writing code, users simply build logic visually.
+Daripada menulis kode, user cukup membangun logika secara visual.
 
-Example:
+Contoh:
 
 ```
 IF
@@ -69,64 +85,64 @@ THEN
   BUY
 ```
 
-Users can combine multiple indicators into one strategy.
+User bisa menggabungkan beberapa indikator jadi satu strategi.
 
 ### 📊 Backtesting
 
-Before risking real money, users can test their strategy. Backtesting provides:
+Sebelum mempertaruhkan uang sungguhan, user bisa menguji strategi mereka. Backtesting menyediakan:
 
 - Profit/Loss
 - Win Rate
 - Drawdown
-- Trade History
-- Performance Summary
+- Riwayat Trade
+- Ringkasan Performa
 
-This helps users improve their strategies before deployment.
+Ini membantu user menyempurnakan strategi mereka sebelum deployment.
 
 ### 🚀 One-Click Deploy
 
-Once users are satisfied with their strategy:
+Setelah user puas dengan strategi mereka:
 
 ```
-Click Deploy → Trading Bot starts running
+Klik Deploy → Trading Bot mulai berjalan
 ```
 
-No scripting. No terminal. No coding.
+Tanpa scripting. Tanpa terminal. Tanpa coding.
 
 ### 🪙 One-Click Token Launch
 
-Users can launch their own tokens directly from the platform. Perfect for:
+User bisa meluncurkan token mereka sendiri langsung dari platform. Cocok untuk:
 
-- Communities
+- Komunitas
 - Gaming
-- Memecoins
-- Startups
-- Experiments
+- Memecoin
+- Startup
+- Eksperimen
 
-Deployment is simple and beginner-friendly.
-
----
-
-## 🎯 Who Is This For?
-
-- ✅ **Beginner traders** — people who understand trading but don't know programming.
-- ✅ **Advanced traders** — people who want to automate their existing strategies.
-- ✅ **Web3 builders** — developers and communities launching tokens on Monad.
+Deployment-nya simpel dan ramah pemula.
 
 ---
 
-## 💡 What Makes This Different?
+## 🎯 Untuk Siapa Platform Ini?
 
-Most platforms focus on trading. We focus on making algorithmic trading accessible.
+- ✅ **Trader pemula** — orang yang paham trading tapi tidak bisa programming.
+- ✅ **Trader berpengalaman** — orang yang ingin mengotomatisasi strategi yang sudah mereka punya.
+- ✅ **Web3 builder** — developer dan komunitas yang meluncurkan token di Monad.
 
-Instead of writing this:
+---
+
+## 💡 Apa yang Membuat Ini Berbeda?
+
+Kebanyakan platform fokus ke trading. Kami fokus membuat algorithmic trading mudah diakses.
+
+Daripada menulis ini:
 
 ```python
 if rsi < 30 and ema50 > ema200:
     buy()
 ```
 
-Users simply build:
+User cukup membangun:
 
 ```
 RSI < 30
@@ -136,11 +152,11 @@ EMA50 > EMA200
 BUY
 ```
 
-This removes one of the biggest barriers in algorithmic trading.
+Ini menghilangkan salah satu hambatan terbesar dalam algorithmic trading.
 
 ---
 
-## ⚙️ Technology Stack
+## ⚙️ Tech Stack
 
 **Frontend**
 - React
@@ -165,104 +181,127 @@ This removes one of the biggest barriers in algorithmic trading.
 
 ---
 
-## 📂 Project Structure
+## 📂 Struktur Project
 
 > Struktur di bawah ini adalah usulan berdasarkan tech stack di atas (Next.js frontend, Node.js/TypeScript backend, Solidity contracts). Sesuaikan dengan struktur repo aktual lu jika berbeda.
 
 ```
 nvoin-smartdex/
 ├── apps/
-│   ├── web/                      # Frontend - Next.js app
-│   │   ├── app/                  # App router pages
-│   │   │   ├── dex/              # Smart DEX swap page
-│   │   │   ├── bot/              # Trading bot dashboard
-│   │   │   ├── strategy-builder/ # Visual strategy builder UI
-│   │   │   ├── backtest/         # Backtesting results page
-│   │   │   └── launch/           # Token launch page
-│   │   ├── components/           # Reusable UI components
-│   │   ├── hooks/                # Custom React hooks
-│   │   ├── lib/                  # Wallet, API client, utils
-│   │   ├── styles/                # TailwindCSS config & globals
-│   │   └── public/                # Static assets
+│   ├── web/                          # Frontend - Next.js app
+│   │   ├── app/
+│   │   │   ├── trade/
+│   │   │   │   └── spot/             # UI trading spot manual
+│   │   │   ├── bot/
+│   │   │   │   ├── dashboard/        # List & status semua bot milik user (running/paused/stopped)
+│   │   │   │   ├── [botId]/          # Detail bot: performa, edit config, start/stop
+│   │   │   │   └── new/              # Setup bot baru (pilih pair + strategi)
+│   │   │   ├── strategy-builder/     # UI visual strategy builder
+│   │   │   │   ├── new/              # Buat strategi baru
+│   │   │   │   └── [strategyId]/edit/# Edit strategi tersimpan
+│   │   │   ├── backtest/             # Halaman hasil backtesting
+│   │   │   └── launch/               # Halaman token launch
+│   │   ├── components/               # Reusable UI components
+│   │   ├── hooks/                    # Custom React hooks
+│   │   ├── lib/                      # Wallet, API client, utils
+│   │   ├── styles/                   # TailwindCSS config & globals
+│   │   └── public/                   # Static assets
 │   │
-│   └── api/                      # Backend - Node.js/TypeScript
+│   └── api/                          # Backend - Node.js/TypeScript
 │       ├── src/
 │       │   ├── modules/
-│       │   │   ├── dex/          # Swap execution logic
-│       │   │   ├── bot/          # Trading bot engine (Stop Loss, Take Profit, Trailing Stop)
-│       │   │   ├── strategy/     # Strategy Builder logic + indicator engine
-│       │   │   ├── backtest/     # Backtesting engine
-│       │   │   └── token/        # One-Click Token Launch
-│       │   ├── routes/           # REST/API routes
-│       │   ├── services/         # Business logic layer
-│       │   ├── jobs/             # Cron jobs / bot scheduler (24/7 execution)
-│       │   ├── db/                # PostgreSQL models & migrations
-│       │   ├── cache/             # Redis integration
-│       │   └── config/            # Env & app config
+│       │   │   ├── trade/
+│       │   │   │   └── spot/         # Eksekusi order spot manual
+│       │   │   ├── bot/
+│       │   │   │   ├── engine/       # Core engine eksekusi bot
+│       │   │   │   ├── config/       # CRUD untuk bot config (create/read/update/delete, clone)
+│       │   │   │   └── runtime/      # State bot yang sedang berjalan (running/paused/stopped)
+│       │   │   ├── strategy/         # Logika Strategy Builder + indicator engine + CRUD strategi
+│       │   │   ├── backtest/         # Backtesting engine
+│       │   │   └── token/            # One-Click Token Launch
+│       │   ├── routes/               # REST/API routes
+│       │   ├── services/             # Business logic layer
+│       │   ├── jobs/                 # Cron/queue - bot scheduler untuk eksekusi 24/7
+│       │   ├── db/
+│       │   │   ├── models/
+│       │   │   │   ├── strategy.model.ts   # Strategi (kondisi indikator, entry/exit rules)
+│       │   │   │   ├── bot-config.model.ts # Config bot tersimpan (strategy_id, pair, risk params)
+│       │   │   │   ├── order.model.ts      # Riwayat order (manual & bot)
+│       │   │   │   └── backtest-result.model.ts
+│       │   │   └── migrations/
+│       │   ├── cache/                # Redis - live price, bot runtime state
+│       │   └── config/               # Env & app config
 │       └── tests/
 │
-├── contracts/                    # Blockchain - Solidity smart contracts
+├── contracts/                        # Blockchain - Solidity smart contracts
 │   ├── src/
-│   │   ├── SmartDEX.sol
-│   │   ├── TradingBotVault.sol
-│   │   └── TokenFactory.sol
-│   ├── scripts/                  # Deployment scripts (Monad)
-│   ├── test/                     # Contract tests
-│   └── hardhat.config.ts         # or foundry.toml
+│   │   ├── spot/
+│   │   │   └── SmartDEX.sol          # AMM swap (spot)
+│   │   ├── bot/
+│   │   │   └── TradingBotVault.sol   # Vault non-custodial untuk eksekusi bot
+│   │   └── token/
+│   │       └── TokenFactory.sol
+│   ├── scripts/                      # Script deployment (Monad)
+│   ├── test/                         # Test contract
+│   └── hardhat.config.ts             # atau foundry.toml
 │
-├── packages/                     # Shared code across apps
-│   ├── types/                    # Shared TypeScript types/interfaces
-│   ├── indicators/               # Shared indicator calculations (RSI, EMA, etc.)
-│   └── config/                   # Shared lint/tsconfig
+├── packages/                         # Shared code antar apps
+│   ├── types/                        # Shared TypeScript types (Strategy, BotConfig, Order, dll.)
+│   ├── indicators/                   # Perhitungan indikator bersama (RSI, EMA, dll.)
+│   └── config/                       # Shared lint/tsconfig
 │
-├── docs/                         # Documentation
+├── docs/                             # Dokumentasi
 ├── .env.example
-├── package.json                  # Monorepo root (Turborepo/Nx/Yarn workspaces)
+├── package.json                      # Root monorepo (Turborepo/Nx/Yarn workspaces)
 └── README.md
 ```
 
 **Catatan struktur:**
-- `apps/web` dan `apps/api` dipisah agar frontend & backend bisa di-deploy independen.
-- `contracts/` terpisah dari `apps/` karena punya siklus build & test sendiri (Hardhat/Foundry).
-- `packages/indicators` sengaja dipisah supaya logika indikator (RSI, EMA, dll.) bisa dipakai bareng oleh Strategy Builder di frontend maupun Backtesting engine di backend, tanpa duplikasi logic.
+- Scope saat ini **spot-only** (manual + bot). Futures sengaja dikeluarkan dari struktur ini karena butuh subsistem terpisah (perp engine, liquidation, funding rate, oracle) yang risikonya terlalu besar untuk dibangun dalam timeline hackathon tanpa audit — lihat [Roadmap Masa Depan](#-roadmap-masa-depan).
+- `trade/spot` (manual) dipisah dari `bot/` (otomatis) baik di frontend maupun backend — karena flow-nya beda: manual = eksekusi langsung, bot = harus lewat setup strategi dulu.
+- `bot/config/` adalah layer khusus untuk **menyimpan bot config ke database** (`bot-config.model.ts`), supaya user bisa reuse atau edit setup bot tanpa mulai dari 0. Terpisah dari `bot/engine/` (logika eksekusi) dan `bot/runtime/` (status bot yang lagi jalan).
+- `strategy/` punya CRUD sendiri (bukan cuma builder), karena strategi juga perlu disimpan & di-attach ke bot config.
+
+> Kalau timeline atau kebutuhan berubah dan futures jadi prioritas, struktur `trade/futures`, modul futures di `bot/`, dan `contracts/futures/` (PerpEngine, LiquidationManager, FundingRateOracle) bisa ditambahkan kembali sebagai fase terpisah — bukan disisipkan ke scope yang sudah jalan, supaya nggak mengganggu stabilitas fitur spot yang sudah ada.
 
 ---
 
-## 🔒 Security
+## 🔒 Keamanan
 
-- Non-custodial wallets
-- On-chain execution
-- Transparent transactions
-- User-controlled assets
+- Wallet non-custodial
+- Eksekusi on-chain
+- Transaksi transparan
+- Aset dikontrol user
 
-Users always maintain ownership of their funds.
+User selalu memegang kepemilikan penuh atas dana mereka.
 
 ---
 
-## 🌍 Future Roadmap
+## 🌍 Roadmap Masa Depan
 
-**Phase 1**
+**Fase 1**
 - Smart DEX
 - Trading Bot
 - Strategy Builder
 - Backtesting
 
-**Phase 2**
+**Fase 2**
 - AI Strategy Assistant
 - Strategy Marketplace
 - Copy Trading
 - Analytics Dashboard
+- **Futures Trading** (manual & dikelola bot) — perpetual/leverage trading, dibangun sebagai fase terpisah setelah spot stabil & (idealnya) melalui security review, karena melibatkan margin, liquidation, dan funding rate engine
 
-**Phase 3**
+**Fase 3**
 - DAO Governance
-- Mobile Application
+- Aplikasi Mobile
 - Cross-chain Support
-- Institutional Features
+- Fitur Institutional
 
 ---
 
-## ❤️ Built for Monad Hackathon
+## ❤️ Dibangun untuk Monad Hackathon
 
-Nvoin SmartDEX is built to showcase how Monad's high-performance blockchain can power the next generation of automated on-chain trading.
+Nvoin SmartDEX dibangun untuk menunjukkan bagaimana blockchain Monad yang berperforma tinggi bisa mendukung generasi baru automated on-chain trading.
 
-**Fast. Simple. Accessible. For everyone.**
+**Cepat. Sederhana. Mudah diakses. Untuk semua orang.**
