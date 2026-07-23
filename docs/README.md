@@ -68,6 +68,8 @@ Otomatisasi trading spot menggunakan strategi custom. User bisa:
 - **Menyimpan konfigurasi bot ke database** — bisa dipakai ulang atau diedit kapan saja tanpa perlu setup dari 0
 - Start / Pause / Stop bot kapan saja
 
+Status eksekusi bot (aktif, sedang trading, berhenti) ditampilkan secara **live** di dashboard, jadi user bisa langsung tahu kondisi bot mereka tanpa perlu refresh manual. Setiap eksekusi trade juga muncul sebagai notifikasi real-time.
+
 Tanpa perlu coding.
 
 ### 🧩 Strategy Builder
