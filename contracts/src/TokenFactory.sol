@@ -1,55 +1,47 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-// Ini adalah standar Token Monad (berbasis ERC20)
-// Karena Monad kompatibel dengan EVM, kode ERC20 adalah cara standar membuat token di Monad.
+// Meskipun ini di jaringan Monad, standar pembuatan token tetap mengikuti interface ERC20
+// Ini karena Monad 100% EVM Compatible. Token asli (seperti ETH) adalah MONAD,
+// tetapi token-token yang dibuat oleh user di atas jaringan Monad berformat ERC20.
 contract MonadToken is ERC20, Ownable {
-    constructor(
-        string memory name,
-        string memory symbol,
-        uint256 initialSupply,
-        address creator
-    ) ERC20(name, symbol) Ownable(creator) {
-        // Mencetak token awal dan mengirimkannya ke pembuat (creator)
+    // Constructor untuk inisialisasi token baru
+    constructor(string memory name, string memory symbol, uint256 initialSupply, address creator) 
+        ERC20(name, symbol) 
+        Ownable(creator) // Menjadikan pembuat token sebagai owner
+    {
+        // Mencetak token dan mengirimkannya ke wallet pembuat (creator)
         _mint(creator, initialSupply * 10 ** decimals());
     }
 }
 
-// TokenFactory memungkinkan user membuat token mereka sendiri dengan 1-Klik
 contract TokenFactory {
-    // Array untuk menyimpan semua alamat token yang pernah dibuat
-    address[] public deployedTokens;
-    
-    // Event yang akan dipancarkan (emit) ketika token baru berhasil dibuat
-    event TokenCreated(address indexed tokenAddress, string name, string symbol, uint256 initialSupply, address indexed creator);
+    // Event yang akan dicatat di blockchain setiap kali token baru dibuat
+    // Berguna agar frontend (Next.js) bisa melacak token baru
+    event TokenCreated(address indexed tokenAddress, string name, string symbol, address indexed creator);
 
-    /**
-     * @dev Fungsi untuk membuat token baru.
-     * @param name Nama dari token (contoh: Nvoin Coin)
-     * @param symbol Simbol token (contoh: NVN)
-     * @param initialSupply Jumlah pasokan koin awal
-     */
+    // Menyimpan daftar semua token yang pernah dibuat melalui pabrik (factory) ini
+    address[] public allTokens;
+
+    // Fungsi utama untuk mencetak token baru dengan satu klik (One-Click Deploy)
     function createToken(string memory name, string memory symbol, uint256 initialSupply) external returns (address) {
-        // Membuat instance MonadToken baru. 
-        // msg.sender adalah user yang memanggil fungsi ini.
+        // Membuat kontrak MonadToken baru
         MonadToken newToken = new MonadToken(name, symbol, initialSupply, msg.sender);
         
-        // Menyimpan alamat token baru ke dalam daftar
-        deployedTokens.push(address(newToken));
-        
-        // Memberikan notifikasi bahwa token berhasil dibuat
-        emit TokenCreated(address(newToken), name, symbol, initialSupply, msg.sender);
-        
+        // Menyimpan alamat kontrak token yang baru ke dalam daftar
+        allTokens.push(address(newToken));
+
+        // Memancarkan event agar bisa dideteksi oleh backend/frontend
+        emit TokenCreated(address(newToken), name, symbol, msg.sender);
+
         return address(newToken);
     }
 
-    /**
-     * @dev Mengembalikan jumlah total token yang telah dibuat melalui factory ini
-     */
-    function getDeployedTokensCount() external view returns (uint256) {
-        return deployedTokens.length;
+    // Fungsi untuk mendapatkan total token yang pernah dibuat
+    function getTotalTokens() external view returns (uint256) {
+        return allTokens.length;
     }
 }
