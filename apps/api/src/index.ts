@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import spotRoutes from './modules/trade/spot/spot.route';
+import botConfigRoutes from './modules/bot/config/bot.config.route';
 import { startBotScheduler } from './jobs/bot.scheduler';
 
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/trade/spot', spotRoutes);
+app.use('/api/bot', botConfigRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
