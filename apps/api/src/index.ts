@@ -19,8 +19,13 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(port, () => {
+import { runMigrations } from './db/migrations';
+
+app.listen(port, async () => {
   console.log(`Server running on port ${port}`);
+
+  // Jalankan migrasi database
+  await runMigrations();
 
   // Nyalakan bot scheduler otomatis saat server jalan!
   startBotScheduler();

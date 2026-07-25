@@ -4,6 +4,7 @@ import { BotConfigController } from './bot.config.controller';
 const router = Router();
 
 // Endpoint: POST /api/bot/config
-router.post('/config', BotConfigController.create);
+router.post('/create', BotConfigController.create);
+router.get('/', BotConfigController.getAll);
 
 export default router;
