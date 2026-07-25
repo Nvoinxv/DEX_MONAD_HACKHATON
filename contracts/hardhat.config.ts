@@ -2,7 +2,17 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.20",
+    solidity: {
+        version: "0.8.25",
+        settings: {
+            // Monad adalah EVM Cancun-compatible — mcopy opcode bisa dipakai di sini
+            evmVersion: "cancun",
+            optimizer: {
+                enabled: true,
+                runs: 200  // Dioptimalkan untuk deployment (bukan frekuensi panggilan)
+            }
+        }
+    },
     paths: {
         sources: "./src"
     },

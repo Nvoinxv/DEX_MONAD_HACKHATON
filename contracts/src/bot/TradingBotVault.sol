@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./SmartDEX.sol";
+import "../spot/SmartDEX.sol";
 
 // Vault ini adalah tempat user menyimpan dananya.
 // Nantinya Bot Engine (Server Node.js Anda) akan mengeksekusi trade secara otomatis
