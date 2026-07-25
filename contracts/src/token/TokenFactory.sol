@@ -91,16 +91,34 @@ contract TokenFactory is ITokenFactory, ReentrancyGuard, Ownable {
     ) external override nonReentrant returns (address) {
         // ---- Validasi Input ------------------------------------------------
         // Cek nama tidak kosong dan tidak terlalu panjang
-        require(bytes(name).length > 0,                "TokenFactory: Nama tidak boleh kosong");
-        require(bytes(name).length <= MAX_NAME_LENGTH,  "TokenFactory: Nama terlalu panjang (maks 50)");
+        require(
+            bytes(name).length > 0,
+            "TokenFactory: Nama tidak boleh kosong"
+        );
+        require(
+            bytes(name).length <= MAX_NAME_LENGTH,
+            "TokenFactory: Nama terlalu panjang (maks 50)"
+        );
 
         // Cek simbol tidak kosong dan tidak terlalu panjang
-        require(bytes(symbol).length > 0,                "TokenFactory: Simbol tidak boleh kosong");
-        require(bytes(symbol).length <= MAX_SYMBOL_LENGTH,"TokenFactory: Simbol terlalu panjang (maks 10)");
+        require(
+            bytes(symbol).length > 0,
+            "TokenFactory: Simbol tidak boleh kosong"
+        );
+        require(
+            bytes(symbol).length <= MAX_SYMBOL_LENGTH,
+            "TokenFactory: Simbol terlalu panjang (maks 10)"
+        );
 
         // Cek supply dalam batas yang wajar
-        require(initialSupply >= MIN_SUPPLY, "TokenFactory: Supply minimum adalah 1");
-        require(initialSupply <= MAX_SUPPLY, "TokenFactory: Supply maksimum adalah 1 triliun");
+        require(
+            initialSupply >= MIN_SUPPLY,
+            "TokenFactory: Supply minimum adalah 1"
+        );
+        require(
+            initialSupply <= MAX_SUPPLY,
+            "TokenFactory: Supply maksimum adalah 1 triliun"
+        );
         // ---- End Validasi --------------------------------------------------
 
         // Buat kontrak MonadToken baru
@@ -117,13 +135,15 @@ contract TokenFactory is ITokenFactory, ReentrancyGuard, Ownable {
         address tokenAddress = address(newToken);
 
         // Simpan informasi token ke mapping creator (parallel-safe)
-        _tokensByCreator[msg.sender].push(TokenInfo({
-            tokenAddress: tokenAddress,
-            name:         name,
-            symbol:       symbol,
-            initialSupply: initialSupply,
-            createdAt:    block.timestamp
-        }));
+        _tokensByCreator[msg.sender].push(
+            TokenInfo({
+                tokenAddress: tokenAddress,
+                name: name,
+                symbol: symbol,
+                initialSupply: initialSupply,
+                createdAt: block.timestamp
+            })
+        );
 
         // Daftarkan token di registry untuk lookup O(1)
         _registeredTokens[tokenAddress] = true;
