@@ -1,8 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import spotRoutes from './modules/trade/spot/spot.route';
-import botConfigRoutes from './modules/bot/config/bot.config.route';
+import apiRoutes from './routes';
 import { startBotScheduler } from './jobs/bot.scheduler';
 
 dotenv.config();
@@ -13,9 +12,8 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/trade/spot', spotRoutes);
-app.use('/api/bot', botConfigRoutes);
+// Routes (Semua request yang mengarah ke /api akan dilempar ke Terminal Pusat di routes/index.ts)
+app.use('/api', apiRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
