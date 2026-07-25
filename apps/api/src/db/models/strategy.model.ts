@@ -2,7 +2,9 @@ export enum StrategyType {
     EMA = "EMA",
     RSI = "RSI",
     MACD = "MACD",
-    CUSTOM = "CUSTOM",
+    SMA = "SMA",
+    ATR = "ATR",
+
 }
 
 export interface StrategyModel {
