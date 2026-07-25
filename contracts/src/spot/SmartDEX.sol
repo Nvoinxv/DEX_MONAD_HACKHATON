@@ -22,7 +22,10 @@ contract SmartDEX is ReentrancyGuard {
     }
 
     // Fungsi untuk menambahkan likuiditas (modal) ke dalam DEX
-    function addLiquidity(uint256 amount0, uint256 amount1) external returns (uint256 shares) {
+    function addLiquidity(
+        uint256 amount0,
+        uint256 amount1
+    ) external returns (uint256 shares) {
         // Transfer token dari user ke smart contract DEX
         token0.transferFrom(msg.sender, address(this), amount0);
         token1.transferFrom(msg.sender, address(this), amount1);
@@ -32,20 +35,31 @@ contract SmartDEX is ReentrancyGuard {
         reserve1 += amount1;
 
         // (Untuk versi sederhana ini, kita belum mengimplementasikan LP Token yang kompleks)
-        return amount0 + amount1; 
+        return amount0 + amount1;
     }
 
     // Fungsi inti: Menukar token menggunakan rumus konstan x * y = k
-    function swap(address _tokenIn, uint256 _amountIn) external nonReentrant returns (uint256 amountOut) {
-        require(_tokenIn == address(token0) || _tokenIn == address(token1), "Token tidak didukung");
+    function swap(
+        address _tokenIn,
+        uint256 _amountIn
+    ) external nonReentrant returns (uint256 amountOut) {
+        require(
+            _tokenIn == address(token0) || _tokenIn == address(token1),
+            "Token tidak didukung"
+        );
         require(_amountIn > 0, "Jumlah harus lebih dari 0");
 
         bool isToken0 = _tokenIn == address(token0);
-        
+
         // Tentukan token apa yang masuk dan token apa yang keluar
-        (IERC20 tokenIn, IERC20 tokenOut, uint256 reserveIn, uint256 reserveOut) = isToken0 
-            ? (token0, token1, reserve0, reserve1) 
-            : (token1, token0, reserve1, reserve0);
+        (
+            IERC20 tokenIn,
+            IERC20 tokenOut,
+            uint256 reserveIn,
+            uint256 reserveOut
+        ) = isToken0
+                ? (token0, token1, reserve0, reserve1)
+                : (token1, token0, reserve1, reserve0);
 
         // Transfer token input dari user ke DEX
         tokenIn.transferFrom(msg.sender, address(this), _amountIn);
