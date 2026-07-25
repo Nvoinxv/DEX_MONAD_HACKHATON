@@ -4,7 +4,9 @@ export enum StrategyType {
     MACD = "MACD",
     SMA = "SMA",
     ATR = "ATR",
-
+    VOLUME = "VOLUME",
+    OBV = "OBV",
+    MTR = "MTR"
 }
 
 export interface StrategyModel {
