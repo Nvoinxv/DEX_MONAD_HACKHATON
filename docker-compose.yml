@@ -29,20 +29,3 @@ services:
     env_file:
       - .env
     restart: unless-stopped
-
-  # Uncomment the lines below if you need a local PostgreSQL database
-  # db:
-  #   image: postgres:15-alpine
-  #   container_name: smartdex-db
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: smartdex
-  #   ports:
-  #     - "5432:5432"
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-  #   restart: unless-stopped
-
-# volumes:
-#   pgdata:
