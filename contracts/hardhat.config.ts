@@ -1,10 +1,18 @@
 import * as dotenv from "dotenv";
-dotenv.config();
+import * as path from "path";
+
+// Load .env from the root directory
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY ?? "";
-const RPC_URL = process.env.MONAD_RPC_URL ?? "";
+// Try to get PRIVATE_KEY, if user put it as PRIVATE_KEY_HERE, we use that too
+const PRIVATE_KEY = process.env.PRIVATE_KEY || process.env.PRIVATE_KEY_HERE || "";
+
+// Default to Monad Testnet public RPC if not set in .env
+const RPC_URL = process.env.MONAD_RPC_URL || "https://testnet-rpc.monad.xyz/";
+
 
 const config: HardhatUserConfig = {
     solidity: {
