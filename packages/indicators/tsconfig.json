@@ -1,0 +1,12 @@
+{
+  "extends": "@smartdex/config/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
