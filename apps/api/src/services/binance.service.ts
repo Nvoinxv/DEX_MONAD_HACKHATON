@@ -6,7 +6,7 @@ export class BinanceService {
         // Karena ini pakai testnet, kita akan pakai endpoint testnet Binance
         const endpoint = 'https://testnet.binance.vision/api/v3/ticker/price';
         // Lu nyimpen key di .env kan bro? Kita panggil dari sana
-        const apiKey = process.env.PRIVATE_KEY_HERE; 
+        const apiKey = process.env.PRIVATE_KEY_HERE;
 
         try {
             // Minta harga ke Binance
@@ -16,7 +16,7 @@ export class BinanceService {
                 }
             });
             const data = await response.json();
-            
+
             if (data && data.price) {
                 return parseFloat(data.price);
             }
@@ -24,7 +24,7 @@ export class BinanceService {
         } catch (error) {
             console.error("[Binance] Gagal ngambil harga dari Binance Testnet:", error);
             // Fallback harga dummy kalau API error (biar bot tetep bisa dites)
-            return Math.random() * 1000 + 100; 
+            return Math.random() * 1000 + 100;
         }
     }
 }
