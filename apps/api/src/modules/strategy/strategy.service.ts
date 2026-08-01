@@ -1,23 +1,45 @@
-export interface StrategyPayload {
-  name: string;
-  logic: string; // e.g., "RSI < 30 AND EMA50 > EMA200 -> BUY"
-}
+import type {
+  Strategy,
+  StrategyPayload,
+} from "../strategy/strategy_main";
 
-class StrategyService {
-  private strategies: Array<StrategyPayload & { id: string }> = [];
+const API_URL = process.env.VITE_API_URL;
 
-  public async createStrategy(payload: StrategyPayload) {
-    const newStrategy = {
-      id: Date.now().toString(),
-      ...payload
-    };
-    this.strategies.push(newStrategy);
-    return newStrategy;
+export async function getStrategies(): Promise<Strategy[]> {
+  const response = await fetch(
+    `${API_URL}/strategies`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch strategies");
   }
 
-  public async getAllStrategies() {
-    return this.strategies;
-  }
+  const result = await response.json();
+
+  return result.data;
 }
 
-export const strategyService = new StrategyService();
+export async function createStrategy(
+  payload: StrategyPayload
+): Promise<Strategy> {
+  const response = await fetch(
+    `${API_URL}/strategies/create`,
+    {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(payload),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to create strategy");
+  }
+
+  const result = await response.json();
+
+  return result.data;
+}
