@@ -5,7 +5,7 @@ import type {
     StrategyPayload,
 } from "../types/strategys";
 
-const API_URL = import.meta.env.VITE_API_URL as string;
+const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 export async function getStrategies(): Promise<Strategy[]> {
     const response = await fetch(

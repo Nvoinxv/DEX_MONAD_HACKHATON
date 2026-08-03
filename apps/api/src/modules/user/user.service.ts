@@ -1,6 +1,6 @@
-import { db } from '../../../db';
+import { db } from '../../db';
 import { randomBytes } from 'crypto';
-import type { User, CreateUserInput, UpdateUserInput } from '../../../db/models/user.model';
+import type { User, CreateUserInput, UpdateUserInput } from '../../db/models/user.model';
 
 /**
  * modules/user/user.service.ts
