@@ -6,6 +6,7 @@ import botConfigRoutes from '../modules/bot/config/bot.config.route';
 import strategyRoutes from '../modules/strategy/strategy.route';
 import backtestRoutes from '../modules/backtest/backtest.route';
 import tokenRoutes from '../modules/token/token.route';
+import userRoutes from '../modules/user/user.route';
 
 const router = Router();
 
@@ -24,5 +25,8 @@ router.use('/backtest', backtestRoutes);
 
 // 5. Jalur Token Launch
 router.use('/token', tokenRoutes);
+
+// 6. Jalur User / Akun
+router.use('/user', userRoutes);
 
 export default router;
